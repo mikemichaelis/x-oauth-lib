@@ -1,4 +1,4 @@
-import {Injectable, EventEmitter} from "@angular/core";
+import {Injectable, EventEmitter, Inject, OpaqueToken} from "@angular/core";
 import {Http, Headers} from "@angular/http";
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 
 import {IAuth} from "x-common-lib";
 import {WindowService} from "x-common-lib";
+
+export let OAUTHSERVICE_CONFIG_TOKEN = new OpaqueToken("OAuthService_Config_Token");
 
 @Injectable()
 export class OAuthService implements IAuth {
@@ -31,7 +33,7 @@ export class OAuthService implements IAuth {
     private locationWatcher = new EventEmitter();  // @TODO: switch to RxJS Subject instead of EventEmitter
     private subscription: any;
 
-    constructor(private windows: WindowService, private http: Http, private config: any) {
+    constructor(private windows: WindowService, private http: Http, @Inject(OAUTHSERVICE_CONFIG_TOKEN) private config: any) {
         this.oAuthCallbackUrl = config.callbackUrl;
         this.oAuthTokenUrl = config.implicitGrantUrl;
         this.oAuthTokenUrl = this.oAuthTokenUrl

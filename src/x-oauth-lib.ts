@@ -1,7 +1,9 @@
 import {NgModule} from '@angular/core';
-import {OAuthService} from './services/oauth-service';
+import {OAuthService, OAUTHSERVICE_CONFIG_TOKEN} from './services/oauth-service';
+
 
 export {
+  OAUTHSERVICE_CONFIG_TOKEN,
   OAuthService
 };
 
