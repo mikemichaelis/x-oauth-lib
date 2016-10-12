@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "ES5",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "./lib"
+  },
+  "files": [
+    "./src/x-oauth-lib.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
